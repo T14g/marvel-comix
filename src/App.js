@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import md5 from 'md5';
 
+import Header from './components/Header/Header.component';
+
 function App() {
 
-  const [getData, setData] = useState({ comics: [], filtered: [] });
-  const { comics, filtered } = getData;
+  const [getState, setState] = useState({ comics: [], filtered: [] });
+  const { comics, filtered } = getState;
 
   useEffect(() => {
     console.log("Run");
@@ -26,16 +28,20 @@ function App() {
     }).then((response) => {
 
       const results = response.data.data.results;
-      console.log(results);
-      setData({ comics: results, filtered: results });
+      setState({ comics: results, filtered: results });
 
     })
   }, [])
 
-  return (
+  const handleFilter = (value) => {
+    const filteredComics = comics.filter((comic) => (comic.title.toLowerCase()).includes(value.toLowerCase()));
+    console.log(filteredComics);
+    setState({ ...getState, filtered: filteredComics });
+  }
 
-    <div>
-      Hello world
+  return (
+    <div className="App">
+      <Header handleFilter={handleFilter} />
     </div>
   );
 }
