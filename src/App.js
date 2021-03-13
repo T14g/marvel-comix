@@ -8,8 +8,8 @@ import ComicList from './components/ComicList/ComicList.component';
 
 function App() {
 
-  const [getState, setState] = useState({ comics: [], filtered: [] });
-  const { comics, filtered } = getState;
+  const [getState, setState] = useState({ comics: [], filtered: [], selectedComics: [] });
+  const { comics, filtered, selectedComics } = getState;
 
   useEffect(() => {
     console.log("Run");
@@ -40,10 +40,15 @@ function App() {
     setState({ ...getState, filtered: filteredComics });
   }
 
+  const onSelectComic = (data) => {
+    console.log(data);
+    setState({ ...getState, selectedComics: data });
+  }
+
   return (
     <div className="App">
       <Header handleFilter={handleFilter} />
-      <ComicList comics={filtered} />
+      <ComicList comics={filtered} onSelectComic={onSelectComic} selectedComics={selectedComics} />
     </div>
   );
 }
