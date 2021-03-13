@@ -4,6 +4,7 @@ import axios from 'axios';
 import md5 from 'md5';
 
 import Header from './components/Header/Header.component';
+import ComicList from './components/ComicList/ComicList.component';
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
   return (
     <div className="App">
       <Header handleFilter={handleFilter} />
+      <ComicList comics={filtered} />
     </div>
   );
 }

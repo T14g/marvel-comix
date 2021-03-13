@@ -1,0 +1,62 @@
+.comic{
+    width: 150px;
+    height: 255px;
+    display: block;
+    float: left;
+    border: 2px #c6c6c6 solid;
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
+
+    &.selected{
+        border: 2px #A3362F solid;
+    }
+
+    .imgPlaceholder{
+        width: 150px;
+        height: 225px;
+        display: block;
+    }
+
+    .comicTitle{
+        font-size: 10px;
+    }
+
+    .comicOptions{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0, 0.7);
+
+        .btnsBox{
+            position: relative;
+            top: 100px;
+
+            .btn{
+                display: block;
+                width: 100%;
+                border: none;
+                color: #fff;
+                max-width: 130px;
+                padding: 5px 10px;
+                margin: 0 auto 5px;
+
+                &.comicDetails{
+                    background: #A3362F;
+                }
+
+                &.selectComic{
+                    background: #326897;
+                }
+
+                &:hover{
+                    cursor: pointer;
+                    opacity: 0.9;
+                }
+            }
+        }
+        
+    }
+    
+}

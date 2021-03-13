@@ -1,0 +1,11 @@
+.comicList{
+    max-width: 1044px;
+    margin: 0 auto;
+    padding-left: 0;
+
+    &::after{
+        display: table;
+        clear: both;
+        content: "";
+    }
+}
