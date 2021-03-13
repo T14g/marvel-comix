@@ -5,12 +5,13 @@ import md5 from 'md5';
 
 import Header from './components/Header/Header.component';
 import ComicList from './components/ComicList/ComicList.component';
+import Modal from './components/Modal/Modal.component';
 import Footer from './components/Footer/Footer.component';
 
 function App() {
 
-  const [getState, setState] = useState({ comics: [], filteredComics: [], selectedComics: [] });
-  const { comics, filteredComics, selectedComics } = getState;
+  const [getState, setState] = useState({ comics: [], filteredComics: [], selectedComics: [], showingModal: false, modalContent: null });
+  const { comics, filteredComics, selectedComics, showingModal, modalContent } = getState;
 
   useEffect(() => {
     console.log("Run");
@@ -43,10 +44,20 @@ function App() {
     setState({ ...getState, selectedComics: data });
   }
 
+  const onToggleModal = (data) => {
+    setState({ ...getState, showingModal: !showingModal, modalContent: data });
+  }
+
   return (
-    <div className="App">
+    <div className={showingModal ? 'App blockScroll' : 'App'} >
       <Header handleFilter={onFilterComic} comics={comics} />
-      <ComicList comics={filteredComics} onSelectComic={onSelectComic} selectedComics={selectedComics} />
+      <ComicList
+        comics={filteredComics}
+        onSelectComic={onSelectComic}
+        selectedComics={selectedComics}
+        toggleModal={onToggleModal}
+      />
+      <Modal show={showingModal} content={modalContent} onToggle={onToggleModal} />
       <Footer />
     </div>
   );

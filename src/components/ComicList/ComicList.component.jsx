@@ -4,7 +4,7 @@ import './ComicList.styles.scss';
 import Comic from '../Comic/Comic.component';
 
 
-const ComicList = ({ comics, selectedComics, onSelectComic }) => {
+const ComicList = ({ comics, selectedComics, onSelectComic, toggleModal }) => {
 
     const handleSelect = (comic) => {
         if (!selectedComics) {
@@ -40,6 +40,7 @@ const ComicList = ({ comics, selectedComics, onSelectComic }) => {
                             comic={comic}
                             onSelect={handleSelect}
                             isSelected={verifySelected(comic)}
+                            onToggleModal={toggleModal}
                         />
                     ))
                 ) : <div className="loading"><p>Loading Comics...</p></div>

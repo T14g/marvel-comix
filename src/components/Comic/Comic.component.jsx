@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Comic.styles.scss';
 
-const Comic = ({ comic, onSelect, isSelected }) => {
+const Comic = ({ comic, onSelect, isSelected, onToggleModal }) => {
     const [getState, setState] = useState({ clicked: false });
     const { clicked } = getState;
 
@@ -24,10 +24,14 @@ const Comic = ({ comic, onSelect, isSelected }) => {
                 clicked ? (
                     <div className="comicOptions">
                         <div className="btnsBox">
-                            <button className="btn comicDetails">Details</button>
-                            <button 
-                            className="btn selectComic" 
-                            onClick={() => onSelect(comic)} 
+                            <button
+                                className="btn comicDetails"
+                                onClick={() => onToggleModal(comic)}
+                            >Details</button>
+                            
+                            <button
+                                className="btn selectComic"
+                                onClick={() => onSelect(comic)}
                             >{selectText}</button>
                         </div>
                     </div>
