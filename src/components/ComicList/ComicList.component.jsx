@@ -42,7 +42,7 @@ const ComicList = ({ comics, selectedComics, onSelectComic }) => {
                             isSelected={verifySelected(comic)}
                         />
                     ))
-                ) : null
+                ) : <div className="loading"><p>Loading Comics...</p></div>
             }
         </ul>
     )

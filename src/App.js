@@ -5,6 +5,7 @@ import md5 from 'md5';
 
 import Header from './components/Header/Header.component';
 import ComicList from './components/ComicList/ComicList.component';
+import Footer from './components/Footer/Footer.component';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
     <div className="App">
       <Header handleFilter={onFilterComic} comics={comics} />
       <ComicList comics={filteredComics} onSelectComic={onSelectComic} selectedComics={selectedComics} />
+      <Footer />
     </div>
   );
 }
