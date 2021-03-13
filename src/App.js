@@ -8,8 +8,8 @@ import ComicList from './components/ComicList/ComicList.component';
 
 function App() {
 
-  const [getState, setState] = useState({ comics: [], filtered: [], selectedComics: [] });
-  const { comics, filtered, selectedComics } = getState;
+  const [getState, setState] = useState({ comics: [], filteredComics: [], selectedComics: [] });
+  const { comics, filteredComics, selectedComics } = getState;
 
   useEffect(() => {
     console.log("Run");
@@ -29,26 +29,23 @@ function App() {
     }).then((response) => {
 
       const results = response.data.data.results;
-      setState({ comics: results, filtered: results });
+      setState({ comics: results, filteredComics: results });
 
     })
   }, [])
 
-  const handleFilter = (value) => {
-    const filteredComics = comics.filter((comic) => (comic.title.toLowerCase()).includes(value.toLowerCase()));
-    console.log(filteredComics);
-    setState({ ...getState, filtered: filteredComics });
+  const onFilterComic = (data) => {
+    setState({ ...getState, filteredComics: data });
   }
 
   const onSelectComic = (data) => {
-    console.log(data);
     setState({ ...getState, selectedComics: data });
   }
 
   return (
     <div className="App">
-      <Header handleFilter={handleFilter} />
-      <ComicList comics={filtered} onSelectComic={onSelectComic} selectedComics={selectedComics} />
+      <Header handleFilter={onFilterComic} comics={comics} />
+      <ComicList comics={filteredComics} onSelectComic={onSelectComic} selectedComics={selectedComics} />
     </div>
   );
 }

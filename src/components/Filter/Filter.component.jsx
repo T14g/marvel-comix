@@ -1,10 +1,12 @@
 import React from 'react';
 import './Filter.styles.scss';
 
-const Filter = ({ callBack }) => {
+const Filter = ({ callBack, comics }) => {
 
     const onFilter = (e) => {
-        callBack(e.target.value);
+        let comicName = e.target.value;
+        let filtered = comics.filter((comic) => (comic.title.toLowerCase()).includes(comicName.toLowerCase()));
+        callBack(filtered);
     }
 
     return (

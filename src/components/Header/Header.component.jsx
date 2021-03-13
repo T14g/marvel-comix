@@ -3,11 +3,11 @@ import './Header.styles.scss';
 import Filter from '../Filter/Filter.component';
 
 
-const Header = ({handleFilter}) => {
+const Header = ({ handleFilter, comics }) => {
 
-    return(
+    return (
         <div className="header">
-            <Filter callBack={handleFilter} />
+            <Filter callBack={handleFilter} comics={comics} />
         </div>
     )
 }
