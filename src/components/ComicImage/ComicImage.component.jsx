@@ -21,9 +21,9 @@ const ComicImage = ({ comic, size }) => {
     const renderHelper = () => {
         if (comic.images.length > 0) {
             let firstImage = comic.images[0].path;
-            return <img  className={size + 'comicImg'}  src={firstImage + imageSize(size)} />
+            return <img  className={size + 'comicImg'}  src={firstImage + imageSize(size)} alt={comic.title}/>
         } else {
-            return <span className="imgPlaceholder">No image</span>
+            return <div className="imgPlaceholder"><span>No image</span></div>
         }
     }
 

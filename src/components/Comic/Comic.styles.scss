@@ -1,6 +1,6 @@
 .comic{
     width: 150px;
-    height: 255px;
+    height: 275px;
     display: block;
     float: left;
     border: 2px #c6c6c6 solid;
@@ -9,11 +9,17 @@
     cursor: pointer;
 
     &.selected{
-        border: 2px #A3362F solid;
+        border: 2px #326897 solid;
+        box-shadow: 3px 2px 5px 3px #326897;
     }
 
     .comicTitle{
         font-size: 10px;
+        text-align: center;
+        display: block;
+        width: 100%;
+        line-height: 1.1;
+        margin-top: 5px;
     }
 
     .comicOptions{

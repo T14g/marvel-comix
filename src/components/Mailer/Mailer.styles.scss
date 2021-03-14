@@ -1,0 +1,98 @@
+.mailerBG{
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    position: fixed;
+    background: rgba($color: #000000, $alpha: 0.9);
+
+    .innerContainer{
+        background: #fff;
+        height: 600px;
+        width: 1000px;
+        margin: 0 auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 15px;
+
+        .titleContainer{
+            margin: 0 0 10px;
+            text-transform: uppercase;
+            font-size: 40px;
+            font-weight: 800;
+            color: #E23636;
+            text-align: center;
+        }
+
+        .emailLabel{
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .emailInput{
+            border: 2px #000 solid;
+            border-radius: 0;
+            padding: 10px 8px;
+
+            &:focus{
+                border-radius: 0;
+                outline: none;
+            }
+        }
+
+        table,td,th{
+            border: 2px #000 solid;
+        }
+
+        .comicsTable{
+            display: block;
+            overflow-y: scroll;
+            border-collapse: collapse;
+            margin-top: 20px;
+            max-height: 400px;
+
+            th{
+                font-size: 14px;
+                text-transform: uppercase;
+
+                &.imageColumn{
+                    width: 10%;
+
+                    img{
+                        width: 100%;
+                    }
+                }
+
+
+                &.titleColumn{
+                    width: 20%;
+                }
+
+                &.descriptionColumn{
+                    width: 60%;
+                }
+            }
+
+            tr{
+                td{
+                    img{
+                        display: block;
+                        margin: 0 auto;
+                    }
+
+                    .imgPlaceholder{
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+
+        .button{
+            margin: 10px 0;
+            max-width: 200px;
+            width: 100%;
+        }
+    }
+}
