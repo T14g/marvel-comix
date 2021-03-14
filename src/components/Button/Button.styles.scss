@@ -14,4 +14,8 @@
         border: 2px #E23636 solid;
         cursor: pointer;
     }
+
+    &:focus{
+        outline: none;
+    }
 }

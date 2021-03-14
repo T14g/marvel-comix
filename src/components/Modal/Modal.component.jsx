@@ -1,6 +1,8 @@
 import React from 'react';
 import './Modal.styles.scss';
 
+import CloseButton from '../CloseButton/CloseButton.component';
+
 const Modal = ({ show, content, onToggle }) => {
 
     const renderHelper = (content) => {
@@ -8,7 +10,7 @@ const Modal = ({ show, content, onToggle }) => {
             return (
                 <div className={show ? 'modalBackground' : 'modalBackground hide'}>
                     <div className="innerContainer">
-                        <button className="closeModal" onClick={() => onToggle(null)}>X</button>
+                        <CloseButton onClick={() => onToggle(null)} />
                         <div className="column">
                             {
                                 content.images.length > 0 ? (

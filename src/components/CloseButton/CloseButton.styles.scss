@@ -1,0 +1,19 @@
+.closeButton{
+    position: absolute;
+    border: 2px #E23636 solid;
+    background: none;
+    color: #E23636;
+    font-size: 20px;
+    border-radius: 50%;
+    right: 0;
+    right: 5px;
+    top: 5px;
+
+    &:focus{
+        outline: none;
+    }
+
+    &:hover{
+        cursor: pointer;
+    }
+}
