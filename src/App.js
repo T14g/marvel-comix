@@ -5,6 +5,7 @@ import md5 from 'md5';
 
 import Header from './components/Header/Header.component';
 import ComicList from './components/ComicList/ComicList.component';
+import Button from './components/Button/Button.component';
 import Modal from './components/Modal/Modal.component';
 import Footer from './components/Footer/Footer.component';
 
@@ -48,15 +49,25 @@ function App() {
     setState({ ...getState, showingModal: !showingModal, modalContent: data });
   }
 
+  const allowEmailShare = () => {
+    return selectedComics === undefined || selectedComics.length === 0 ? false : true;
+  }
+
   return (
     <div className={showingModal ? 'App blockScroll' : 'App'} >
       <Header handleFilter={onFilterComic} comics={comics} />
-      <ComicList
-        comics={filteredComics}
-        onSelectComic={onSelectComic}
-        selectedComics={selectedComics}
-        toggleModal={onToggleModal}
-      />
+
+      <div className="container">
+        <ComicList
+          comics={filteredComics}
+          onSelectComic={onSelectComic}
+          selectedComics={selectedComics}
+          toggleModal={onToggleModal}
+        />
+
+        <Button name="Share Selected" show={allowEmailShare()} />
+      </div>
+
       <Modal show={showingModal} content={modalContent} onToggle={onToggleModal} />
       <Footer />
     </div>
