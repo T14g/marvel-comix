@@ -39,7 +39,7 @@ function App() {
       responseType: 'json'
     }).then((response) => {
 
-      const results = response.data.data.results;
+      const results = response.data.data.results.reverse();
       setState({ comics: results, filteredComics: results });
 
     })

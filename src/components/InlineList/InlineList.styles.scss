@@ -1,0 +1,22 @@
+.inlineList{
+    margin: 0 20px 10px;
+    padding-left: 0;
+
+    &::after{
+        display: table;
+        content: "";
+        clear: both;
+    }
+
+    li{
+        font-size: 14px;
+        display: block;
+        float: left;
+        font-weight: 500;
+        margin-right: 5px;
+    }
+}
+
+.errorMsg{
+    margin: 0 0 10px 20px;
+}

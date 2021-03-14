@@ -12,7 +12,10 @@ const ComicImage = ({ comic, size }) => {
             return '/portrait_xlarge.jpg';
         } else if (size === 'small') {
             return '/portrait_small.jpg';
-        } else {
+        } else if (size === 'uncanny') {
+            return '/portrait_uncanny.jpg';
+        }
+        else {
             return '/portrait_medium.jpg'
         }
 
@@ -21,7 +24,7 @@ const ComicImage = ({ comic, size }) => {
     const renderHelper = () => {
         if (comic.images.length > 0) {
             let firstImage = comic.images[0].path;
-            return <img  className={size + 'comicImg'}  src={firstImage + imageSize(size)} alt={comic.title}/>
+            return <img className={size + 'comicImg'} src={firstImage + imageSize(size)} alt={comic.title} />
         } else {
             return <div className="imgPlaceholder"><span>No image</span></div>
         }
