@@ -15,6 +15,10 @@
         text-transform: uppercase;
         font-weight: 900;
         text-align: center;
+
+        &.nope{
+            color: #E23636;
+        }
         
         p{
             

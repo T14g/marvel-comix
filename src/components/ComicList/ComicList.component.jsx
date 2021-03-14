@@ -33,7 +33,7 @@ const ComicList = ({ comics, selectedComics, onSelectComic, toggleModal }) => {
     return (
         <ul className="comicList">
             {
-                comics.length > 0 ? (
+                comics !== null && comics.length > 0 ? (
                     comics.map((comic, index) => (
                         <Comic
                             key={index}
@@ -43,7 +43,9 @@ const ComicList = ({ comics, selectedComics, onSelectComic, toggleModal }) => {
                             onToggleModal={toggleModal}
                         />
                     ))
-                ) : <div className="loading"><p>Loading Comics...</p></div>
+                ) : comics !==null && comics.length === 0 ?
+                    <div className="loading nope"><p>No Comics found.</p></div>
+                    : <div className="loading"><p>Loading Comics...</p></div>
             }
         </ul>
     )

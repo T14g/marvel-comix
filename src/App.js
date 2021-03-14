@@ -10,7 +10,7 @@ import Footer from './components/Footer/Footer.component';
 
 function App() {
 
-  const [getState, setState] = useState({ comics: [], filteredComics: [], selectedComics: [], showingModal: false, modalContent: null });
+  const [getState, setState] = useState({ comics: [], filteredComics: null, selectedComics: [], showingModal: false, modalContent: null });
   const { comics, filteredComics, selectedComics, showingModal, modalContent } = getState;
 
   useEffect(() => {
