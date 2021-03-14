@@ -4,6 +4,8 @@ import './Mailer.styles.scss';
 import ComicImage from '../ComicImage/ComicImage.component';
 import Button from '../Button/Button.component';
 import CloseButton from '../CloseButton/CloseButton.component';
+import InlineList from '../InlineList/InlineList.component';
+import ComicDescription from '../ComicDescription/ComicDescription.component';
 
 const Mailer = ({ show, selectedComics, onToggle }) => {
 
@@ -37,10 +39,11 @@ const Mailer = ({ show, selectedComics, onToggle }) => {
                                                     <ComicImage comic={comic} size="medium" />
                                                 </td>
                                                 <td>{comic.title}</td>
-                                                {comic.description !== null ?
-                                                    (<td className="comicDescription"
-                                                        dangerouslySetInnerHTML={{ __html: comic.description }}></td>)
-                                                    : (<td className="comicDescription not">No Description</td>)}
+                                                <td>
+                                                    <InlineList title="Creators" list={comic.creators.items} />
+                                                    <InlineList title="Characters" list={comic.characters.items} />
+                                                    <ComicDescription description={comic.description} />
+                                                </td>
                                             </tr>
                                         ))
                                     ) : null

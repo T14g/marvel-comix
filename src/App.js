@@ -62,7 +62,6 @@ function App() {
   }
 
   const onToggleMailer = () => {
-    console.log("opa");
     setState({ ...getState, showMailer: !showMailer });
   }
 
