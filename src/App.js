@@ -1,7 +1,6 @@
 import './App.scss';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import md5 from 'md5';
+import fetchComics from './services/fetchComics';
 
 import Header from './components/Header/Header.component';
 import ComicList from './components/ComicList/ComicList.component';
@@ -20,28 +19,14 @@ function App() {
     modalContent: null,
     showMailer: false
   });
+
   const { comics, filteredComics, selectedComics, showingModal, modalContent, showMailer } = getState;
 
   useEffect(() => {
-    console.log("Run");
-    const timeStamp = toString(new Date());
-    const privateKey = process.env.REACT_APP_PRIVATE_KEY;
-    const publicKey = process.env.REACT_APP_PUBLIC_KEY;
-    const hash = md5(timeStamp + privateKey + publicKey);
+    fetchComics().then((results) => {
 
-    axios.get('http://gateway.marvel.com/v1/public/comics', {
-      params: {
-        'apikey': publicKey,
-        'limit': 100,
-        'hash': hash,
-        'ts': timeStamp
-      },
-      responseType: 'json'
-    }).then((response) => {
-
-      const results = response.data.data.results.reverse();
       setState({ comics: results, filteredComics: results });
-
+      
     })
   }, [])
 

@@ -26,7 +26,7 @@ const Mailer = ({ show, selectedComics, onToggle }) => {
                                 <tr>
                                     <th className="imageColumn">Image</th>
                                     <th className="titleColumn">Title</th>
-                                    <th className="descriptionColumn">Description</th>
+                                    <th className="descriptionColumn">Details</th>
                                 </tr>
                             </thead>
 
