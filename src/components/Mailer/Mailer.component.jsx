@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Mailer.styles.scss';
 
 import ComicImage from '../ComicImage/ComicImage.component';
@@ -9,6 +9,27 @@ import ComicDescription from '../ComicDescription/ComicDescription.component';
 
 const Mailer = ({ show, selectedComics, onToggle }) => {
 
+    const [getState, setState] = useState({ disabledEmail: true });
+    const { disabledEmail } = getState;
+
+    const onTypeEmail = (e) => {
+        const emailTyped = e.target.value;
+
+        let regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (regex.test(emailTyped.toLowerCase())) {
+            setState({ disabledEmail: false })
+        } else {
+            setState({ disabledEmail: true })
+        }
+
+    }
+
+    const onCloseMailer = () => {
+        onToggle();
+        setState({ disabledEmail: true })
+    }
+
     const renderHelper = () => {
 
         if (show) {
@@ -16,10 +37,10 @@ const Mailer = ({ show, selectedComics, onToggle }) => {
                 <div className="mailerBG">
                     <div className="innerContainer">
                         <h2 className="titleContainer">Send comics via email</h2>
-                        <CloseButton onClick={() => onToggle()} />
+                        <CloseButton onClick={() => onCloseMailer()} />
 
                         <label htmlFor="email" className="emailLabel">Send to:</label>
-                        <input type="email" name="email" id="email" className="emailInput" />
+                        <input type="email" name="email" id="email" className="emailInput" onChange={onTypeEmail} />
 
                         <table className="comicsTable">
                             <thead>
@@ -51,7 +72,7 @@ const Mailer = ({ show, selectedComics, onToggle }) => {
                             </tbody>
                         </table>
 
-                        <Button name="Send" show={true} onClick={() => console.log("Sending comics via email....")} />
+                        <Button name="Send" disabled={disabledEmail} show={true} onClick={() => console.log("Sending comics via email....")} />
                     </div>
                 </div>
             )

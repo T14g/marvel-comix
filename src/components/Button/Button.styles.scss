@@ -8,6 +8,19 @@
     font-weight: 600;
     padding: 15px 8px;
 
+    &.disabled{
+        background: #c6c6c6;
+        color: #d8d8d8;
+        border: 2px #C6C6C6 solid;
+
+        &:hover, &:active, &:focus{
+            background: #c6c6c6;
+            color: #d8d8d8;
+            border: 2px #C6C6C6 solid;
+            cursor: pointer;
+        }
+    }
+
     &:hover{
         background: #E23636;
         color: #fff;
