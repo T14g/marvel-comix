@@ -30,6 +30,11 @@ const Mailer = ({ show, selectedComics, onToggle }) => {
         setState({ disabledEmail: true })
     }
 
+    const onSendEmail = () => {
+        onCloseMailer();
+        alert("The email has been sent! Thanks!");
+    }
+
     const renderHelper = () => {
 
         if (show) {
@@ -72,7 +77,7 @@ const Mailer = ({ show, selectedComics, onToggle }) => {
                             </tbody>
                         </table>
 
-                        <Button name="Send" disabled={disabledEmail} show={true} onClick={() => console.log("Sending comics via email....")} />
+                        <Button name="Send" disabled={disabledEmail} show={true} onClick={() => onSendEmail()} />
                     </div>
                 </div>
             )

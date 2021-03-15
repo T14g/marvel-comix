@@ -5,14 +5,15 @@ const BASE_URL = 'http://gateway.marvel.com/v1/public/comics';
 
 const fetchComics = async () => {
 
+    const PUBLIC_K = 'f36e1b15baf00be2ff61c947e88add3d';
+    const PRIV_K = 'fc1e647f7727f1e75c0ee797dd1fa793040b678b';
+
     const timeStamp = toString(new Date());
-    const privateKey = process.env.REACT_APP_PRIVATE_KEY;
-    const publicKey = process.env.REACT_APP_PUBLIC_KEY;
-    const hash = md5(timeStamp + privateKey + publicKey);
+    const hash = md5(timeStamp + PRIV_K + PUBLIC_K);
 
     const results = axios.get(BASE_URL, {
         params: {
-            'apikey': publicKey,
+            'apikey': PUBLIC_K,
             'limit': 100,
             'hash': hash,
             'ts': timeStamp
