@@ -4,4 +4,15 @@
     display: block;
     margin: 0 auto;
     padding: 10px 5px;
+    border-radius: 0;
+    border: 2px #000 solid;
+
+    @media(max-width: 660px){
+        max-width: 260px;
+    }
+
+    &:focus{
+        outline: none;
+        border: 2px #E23636 solid;
+    }
 }

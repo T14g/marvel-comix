@@ -10,7 +10,7 @@ const Filter = ({ callBack, comics }) => {
     }
 
     return (
-        <input type="text" className="FilterInput" onChange={onFilter} />
+        <input type="text" className="FilterInput" onChange={onFilter} placeholder="Type something to filter" />
     )
 }
 

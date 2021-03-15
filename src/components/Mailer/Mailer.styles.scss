@@ -15,6 +15,32 @@
         transform: translateY(-50%);
         padding: 15px;
 
+        @media(max-width: 1010px){
+            max-width: 800px;
+
+            .comicDescription, .errorMsg{
+                max-width: 437px;
+            }
+        }
+
+        @media(max-width: 800px){
+            max-width: 660px;
+
+            .comicDescription, .errorMsg{
+                max-width: 328px;
+            }
+        }
+
+        @media(max-width: 660px){
+            max-width: 280px;
+            height: auto;
+
+            .closeButton{
+                right: 0;
+                top: -40px;
+            }
+        }
+
         .titleContainer{
             margin: 0 0 10px;
             text-transform: uppercase;
@@ -22,6 +48,10 @@
             font-weight: 800;
             color: #E23636;
             text-align: center;
+
+            @media(max-width: 660px) {
+                font-size: 22px;
+            }
         }
 
         .emailLabel{
@@ -36,6 +66,11 @@
             border-radius: 0;
             padding: 10px 8px;
 
+            @media(max-width: 660px) {
+                width: 100%;
+                max-width: 260px;
+            }
+
             &:focus{
                 border-radius: 0;
                 outline: none;
@@ -44,6 +79,10 @@
 
         table,td,th{
             border: 2px #000 solid;
+
+            @media(max-width: 660px){
+                font-size: 10px;
+            }
         }
 
         .comicsTable{
@@ -52,6 +91,24 @@
             border-collapse: collapse;
             margin-top: 20px;
             max-height: 400px;
+
+            @media(max-width: 660px) {
+                .inlineList {
+                    margin:  5px;
+                    li{
+                        font-size: 10px;
+                    }
+                }
+
+                .imgPlaceholder{
+                    width: 100%;
+                }
+
+                .listTitle, .errorMsg, .descriptionTitle, .comicDescription{
+                    margin: 0 5px;
+                    font-size: 10px;
+                }
+            }
 
             th{
                 font-size: 14px;
@@ -93,6 +150,10 @@
             margin: 10px 0;
             max-width: 200px;
             width: 100%;
+
+            @media(max-width: 660px){
+                max-width: 100%;
+            }
         }
 
         h3{

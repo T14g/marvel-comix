@@ -12,6 +12,11 @@
         .t14g{
             color: #2B2BFF;
             text-decoration: none;
+            font-weight: 600;
+
+            &:hover{
+                color: #E23636;
+            }
         }
     }
 }

@@ -2,6 +2,22 @@
     .container{
         max-width: 1044px;
         margin: 0 auto;
+
+        @media(max-width: 1044px) {
+            max-width: 870px;
+        }
+
+        @media(max-width: 869px) {
+            max-width: 696px;
+        }
+
+        @media(max-width: 695px) {
+            max-width: 348px;
+        }
+
+        @media(max-width: 355px) {
+            max-width: 300px;
+        }
     }
 
     &.blockScroll{
