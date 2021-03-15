@@ -1,7 +1,7 @@
 import axios from 'axios';
 import md5 from 'md5';
 
-const BASE_URL = 'http://gateway.marvel.com/v1/public/comics';
+const BASE_URL = 'https://gateway.marvel.com/v1/public/comics';
 
 const fetchComics = async () => {
 
