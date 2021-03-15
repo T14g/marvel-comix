@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Marvel Comix - React APP
+Aplicação para listagem de Comics da Marvel.
+## Instruções
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Após clonar o projeto, para instalar as dependências, vá na pasta raiz e digite:
+### `npm install`
 
-## Available Scripts
-
-In the project directory, you can run:
+Para rodar o projeto na pasta raiz digite no terminal:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Irá rodar em modo desenvolvedor:
+Abra [http://localhost:3000](http://localhost:3000) no browser para ver.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Tecnologias utilizadas
 
-### `npm test`
+- React;
+- UseState e UseEffect Hooks;
+- Sass;
+- Axios;
+- API da Marvel de Comics;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Como foi feita
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+O foco foi componentizar bem o código, reutilizando componentes a medida do possível, também foi criado um service fetchComics que é importado no App.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+O state principal fica no App.js , sendo alterado por funções que são passadas para componentes filhos para que possam fazer com que o state da aplicação mude.
+Alguns componentes filhos tem seu próprio state, é o caso do Comic.js que possuí um state para dizer se foi ou não clicado e exibir ou não as opções do Comic.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Foi utilizado o useEffect Hook para que logo após a aplicação ter sido mounted seja executado o service fetchComics e em seguida é usado o useState hooks para guardar os dados sobre os comics no estado do component principal App.js.
+Enquanto não forem carregados o usuário verá uma mensagem Loading Comics...
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Após serem carregados os Comics é possível filtrar digitando no topo da página alguma palavra, letra, nome de personagem, nome de HQ. Todas HQ'S que tiverem em seu título essa palavra serão exibidas, caso não haja resultados o usuário verá uma mensagem na tela dizendo que nenhuma HQ foi encontrada
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Do App.js os dados das HQ's serão passados para outros componentes como o ComicList que irá por sua vez passar os dados de cada uma das HQ's com um map para um componente Comic que exibirá na tela inicial uma imagem vinda do componente ComicImage e o título da HQ.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Ao clicar em uma HQ na tela inicial o usuário verá duas opções:
+- Details ( que abre uma modal com detalhes do Comic);
+- Select/Unselect ( que seleciona a HQ para ser enviada via email);
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Se o usuário clicar em Details aparecerá uma Modal com mais informações sobre aquela HQ.
 
-## Learn More
+Se ele clicar em Select a HQ ficará marcada na tela e poderá desmarcar clicando novamente e escolhendo Unselect.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Caso haja pelo menos uma HQ selecionada aparecerá um botão no final da lista para que o usuário possa enviar as HQ'S selecionadas via email.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+A tela que aparece é o componente Mailer que valida com Regex se o usuário digitou um email válido, caso esteja válido é liberado o botão de envio,  do contrário ele não consegue enviar.
 
-### Code Splitting
+Ao clicar enviar o usuário recebe um alerta na tela dizendo que as HQ's foram enviadas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Como esta é uma aplicação focada no Front-End foi até ai a aplicação. Para fazer um envio real teria que utilizar alguma API de envio de emails passando os dados salvos em selectedComics.
 
-### Analyzing the Bundle Size
+Thanks for reading!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
